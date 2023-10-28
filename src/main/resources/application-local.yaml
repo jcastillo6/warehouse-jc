@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+      username: sa
+      password:
+      maximum-pool-size: 5
+      connection-test-query: "SELECT 1"
+      pool-name: warPool
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
