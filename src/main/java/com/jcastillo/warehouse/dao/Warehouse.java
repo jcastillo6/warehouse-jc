@@ -1,7 +1,8 @@
 package com.jcastillo.warehouse.dao;
 
+import java.util.HashSet;
 import java.util.Set;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -23,7 +24,7 @@ public class Warehouse extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private WarehouseType type;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "warehouse")
-    private Set<Locator> locators;
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "warehouse", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private Set<Locator> locators = new HashSet<>();
 
 }
