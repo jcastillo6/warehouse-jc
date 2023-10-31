@@ -22,7 +22,7 @@ public class Locator extends AbstractEntity {
     private LocatorType type;
     @ManyToOne
     @JoinColumn(
-        name = "warehouse_id",
+        name = "WAREHOUSE_ID",
         nullable = false,
         referencedColumnName = "id",
         foreignKey = @ForeignKey(
