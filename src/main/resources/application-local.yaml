@@ -12,3 +12,6 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: create-drop
+management:
+  server:
+    port: 9091
