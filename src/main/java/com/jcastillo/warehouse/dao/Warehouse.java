@@ -11,9 +11,11 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Warehouse extends AbstractEntity {
     @Column(nullable = false, unique = true)
     @NotEmpty
@@ -26,4 +28,9 @@ public class Warehouse extends AbstractEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "warehouse")
     private Set<Locator> locators;
 
+    public Warehouse(com.jcastillo.warehouse.controller.restmodel.Warehouse warehouseRest) {
+        this.name = warehouseRest.getName();
+        this.location = new Address(warehouseRest.getLocation(), null, null);
+        this.type = WarehouseType.REGULAR;
+    }
 }
