@@ -1,0 +1,17 @@
+{
+  "library": "spring-boot3",
+  "dateLibrary": "java8",
+  "hideGenerationTimestamp": true,
+  "modelPackage": "com.jcastillo.warehouse.api.model",
+  "apiPackage": "com.jcastillo.warehouse.api",
+  "invokerPackage": "com.jcastillo.warehouse.api",
+  "serializableModel": true,
+  "useTags": true,
+  "useGzipFeature" : true,
+  "hateoas": true,
+  "withXml": true,
+  "importMappings": {
+    "ResourceSupport":"org.springframework.hateoas.RepresentationModel",
+    "Link": "org.springframework.hateoas.Link"
+  }
+}
