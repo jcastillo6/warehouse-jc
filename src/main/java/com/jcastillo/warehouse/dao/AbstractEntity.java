@@ -2,11 +2,11 @@ package com.jcastillo.warehouse.dao;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.jcastillo.warehouse.util.DateProcessor;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Version;
@@ -17,9 +17,9 @@ import lombok.Data;
 @Data
 public abstract class AbstractEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(updatable = false)
-    protected long id;
+    protected UUID id;
     @Version
     protected int version;
     @NotNull

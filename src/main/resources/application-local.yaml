@@ -1,14 +1,25 @@
 spring:
   datasource:
-    hikari:
-      driver-class-name: org.h2.Driver
-      url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-      username: sa
-      password:
-      maximum-pool-size: 5
-      connection-test-query: "SELECT 1"
-      pool-name: warPool
+    url: jdbc:h2:file:~/db/warehousedb;DB_CLOSE_DELAY=-1;IGNORECASE=TRUE;DATABASE_TO_UPPER=false
+    username: sa
+    password:
+    name: warehouse
+    driver-class-name: org.h2.Driver
+
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    format_sql: true
+    properties:
+      hibernate:
+        default_schema: WAREHOUSEDB
+  flyway:
+    url: jdbc:h2:file:~/db/warehousedb
+    user: sa
+    schemas: warehousedb
+logging:
+  level:
+    root: info

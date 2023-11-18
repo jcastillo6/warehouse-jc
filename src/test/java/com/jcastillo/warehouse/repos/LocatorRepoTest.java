@@ -1,25 +1,25 @@
 package com.jcastillo.warehouse.repos;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.lang.invoke.StringConcatException;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.jcastillo.warehouse.WarehouseApplication;
-import com.jcastillo.warehouse.dao.Warehouse;
-
 @ActiveProfiles("local")
+@SpringBootTest
 @ExtendWith(SpringExtension.class)
 class LocatorRepoTest {
 
+    @Autowired
+    private WarehouseRepo warehouseRepo;
+
     @Test
     void test() {
-        assertTrue(true);
+
+        var warehouses = warehouseRepo.findAll();
+        assertTrue(warehouses.size() > 0);
     }
 }
