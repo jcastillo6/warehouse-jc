@@ -14,7 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Address implements Serializable {
     @Column(nullable = false)
-    private String address1;
+    private String text;
     private String latitude;
     private String longitude;
+
+    public Address(String address) {
+        this.text = address;
+    }
 }
