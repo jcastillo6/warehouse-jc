@@ -1,4 +1,4 @@
-package com.jcastillo.warehouse.dao;
+package com.jcastillo.warehouse.entity;
 
 import java.io.Serializable;
 

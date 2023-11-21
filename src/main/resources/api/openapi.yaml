@@ -4,7 +4,7 @@ info:
   description: >
     'This is a ***sample warehouse management API***.  You can find out more about Swagger at [swagger.io](http://swagger.io).
     Description supports markdown markup. For example, you can use the `inline code` using back ticks.'
-  termsOfService:
+  termsOfService: none
   contact:
     email: castillo.guerra@gmail.com
   license:
@@ -152,6 +152,10 @@ components:
         id:
           description: unique identifier of the warehouse
           type: string
+          format: uuid
+        name:
+          description: warehouse name
+          type: string
         locators:
           description: locators of the warehouse
           type: array
@@ -173,6 +177,7 @@ components:
         id:
           description: locator Identifier
           type: string
+          format: uuid
         type:
           description: locator type
           type: string
