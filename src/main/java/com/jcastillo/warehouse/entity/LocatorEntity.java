@@ -1,4 +1,4 @@
-package com.jcastillo.warehouse.dao;
+package com.jcastillo.warehouse.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +13,7 @@ import lombok.Data;
 @Entity
 @Table(name = "locator")
 @Data
-public class Locator extends AbstractEntity {
+public class LocatorEntity extends AbstractEntity {
     @Column(nullable = false, unique = true)
     @NotEmpty
     private String name;
@@ -23,5 +23,5 @@ public class Locator extends AbstractEntity {
     private LocatorType type;
     @ManyToOne
     @JoinColumn(name = "warehouse_id", nullable = false)
-    private Warehouse warehouse;
+    private WarehouseEntity warehouse;
 }

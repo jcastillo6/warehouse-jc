@@ -8,8 +8,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.jcastillo.warehouse.api.model.Warehouse;
-import com.jcastillo.warehouse.dao.Address;
-import com.jcastillo.warehouse.dao.WarehouseType;
+import com.jcastillo.warehouse.entity.Address;
+import com.jcastillo.warehouse.entity.WarehouseEntity;
+import com.jcastillo.warehouse.entity.WarehouseType;
 
 @Service
 @Scope("prototype")
@@ -19,18 +20,29 @@ public class WarehouseMapper {
         log.info("Instance creation");
     }
 
-    public Optional<com.jcastillo.warehouse.dao.Warehouse> getWarehouse(Warehouse warehouseApiModel) {
+    public Optional<WarehouseEntity> getWarehouse(Warehouse warehouseApiModel) {
         if (warehouseApiModel == null) {
             return Optional.empty();
         }
-        var warehouseDao = new com.jcastillo.warehouse.dao.Warehouse();
+        var warehouseDao = new WarehouseEntity();
         var address = new Address(warehouseApiModel.getAddress());
         warehouseDao.setLocation(address);
-        warehouseDao.setName(warehouseApiModel.getId());
+        warehouseDao.setName(warehouseApiModel.getName());
         //TODO implement get enum value
         warehouseDao.setType(WarehouseType.REGULAR);
         //TODO implement add location logic
         return Optional.of(warehouseDao);
     }
 
+    public Optional<Warehouse> getWarehouse(WarehouseEntity warehouseEntity) {
+        if (warehouseEntity == null) {
+            return Optional.empty();
+        }
+        var warehouse = new Warehouse();
+        warehouse.setAddress(warehouseEntity.getLocation().getText());
+        warehouse.setId(warehouseEntity.getId());
+        warehouse.setType(Enum.valueOf(Warehouse.TypeEnum.class, warehouseEntity.getType().name()));
+        warehouse.setId(warehouseEntity.getId());
+        return Optional.of(warehouse);
+    }
 }

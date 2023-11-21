@@ -1,4 +1,4 @@
-package com.jcastillo.warehouse.dao;
+package com.jcastillo.warehouse.entity;
 
 import java.util.Set;
 
@@ -17,7 +17,7 @@ import lombok.Data;
 @Entity
 @Table(name = "warehouse")
 @Data
-public class Warehouse extends AbstractEntity {
+public class WarehouseEntity extends AbstractEntity {
     @Column(nullable = false, unique = true)
     @NotEmpty
     private String name;
@@ -27,6 +27,6 @@ public class Warehouse extends AbstractEntity {
     @Column(nullable = false)
     private WarehouseType type;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "warehouse", cascade = CascadeType.ALL)
-    private Set<Locator> locators;
+    private Set<LocatorEntity> locators;
 
 }
