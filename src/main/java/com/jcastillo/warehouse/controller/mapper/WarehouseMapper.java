@@ -6,11 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-
-import com.jcastillo.warehouse.api.model.Warehouse;
 import com.jcastillo.warehouse.entity.Address;
 import com.jcastillo.warehouse.entity.WarehouseEntity;
 import com.jcastillo.warehouse.entity.WarehouseType;
+import com.jcastillo.warehouse.model.Warehouse;
 
 @Service
 @Scope("prototype")

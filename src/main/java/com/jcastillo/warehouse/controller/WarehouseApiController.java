@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import com.jcastillo.warehouse.api.WarehouseApi;
-import com.jcastillo.warehouse.api.model.Locator;
-import com.jcastillo.warehouse.api.model.Warehouse;
+import com.jcastillo.warehouse.model.Locator;
+import com.jcastillo.warehouse.model.Warehouse;
 import com.jcastillo.warehouse.service.WarehouseService;
 
 

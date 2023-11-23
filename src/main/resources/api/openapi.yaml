@@ -57,7 +57,7 @@ paths:
       description: create new warehouse
       operationId: createWarehouse
       requestBody:
-        description: Item object
+        description: Warehouse object
         content:
           application/xml:
             schema:
@@ -67,7 +67,7 @@ paths:
               $ref: '#/components/schemas/Warehouse'
       responses:
         201:
-          description: Item added successfully
+          description: Warehouse added successfully
           content:
             application/xml:
               schema:
@@ -116,9 +116,9 @@ paths:
     get:
       tags:
         - warehouse
-      summary: Returns the warehouse information
-      description: Returns the warehouse information of an specific facility
-      operationId: getWarehouseByWarehouseId
+      summary: Returns the locators of an specific warehouse
+      description: Returns the locators of an specific warehouse
+      operationId: getLocatorsByWarehouseId
       parameters:
         - name: warehouseId
           in: path

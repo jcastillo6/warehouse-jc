@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.jcastillo.warehouse.api.model.Warehouse;
+import com.jcastillo.warehouse.model.Warehouse;
 import com.jcastillo.warehouse.controller.mapper.WarehouseMapper;
 import com.jcastillo.warehouse.entity.WarehouseEntity;
 import com.jcastillo.warehouse.repos.WarehouseRepo;
