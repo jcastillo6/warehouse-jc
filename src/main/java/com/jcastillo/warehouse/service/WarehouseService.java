@@ -41,26 +41,18 @@ public class WarehouseService implements AbstractService<WarehouseEntity>{
         return warehouseRepo.save(warehouseEntity);
     }
 
-    public Warehouse save(Warehouse warehouse) {
+    public WarehouseEntity save(Warehouse warehouse) {
         var warehouseEntity = warehouseMapper.getWarehouse(warehouse);
         if (warehouseEntity.isPresent()) {
-            var warehousePersisted = save(warehouseEntity.get());
-            warehouse.setId(warehousePersisted.getId());
-            return warehouse;
+            return save(warehouseEntity.get());
         }
         else {
             throw new IllegalArgumentException();
         }
     }
 
-    public Optional<Warehouse> getWarehouseEntity(UUID warehouseId) {
-        var warehouseOpt = findById(warehouseId);
-        if (warehouseOpt.isPresent()) {
-            var warehouseEntity = warehouseOpt.get();
-            return warehouseMapper.getWarehouse(warehouseEntity);
-        }
-
-        return Optional.empty();
+    public Optional<WarehouseEntity> getWarehouseEntity(UUID warehouseId) {
+        return warehouseRepo.findById(warehouseId);
     }
 
     @Override
